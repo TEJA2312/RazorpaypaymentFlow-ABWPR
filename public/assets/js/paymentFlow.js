@@ -14,6 +14,7 @@ function isNumberKey(evt){
 var rzp1 = new Razorpay(options);
 
 rzp1.on('payment.failed', function (response){
+
     location.replace( "/payment/failure"); // redirect to failure page
     // console.log(response);
 });
@@ -36,6 +37,7 @@ const check = (orderID,payID,signature)=>{
           if(xmlHttp.responseText== "success"){ 
             SuccessRecord(orderID);
                 }else{ 
+                  console.log("failed here ##");
               location.replace( "/payment/failure");
                 }
               };
@@ -56,7 +58,7 @@ const SuccessRecord = (orderID)=>{
     yearofStudy: document.getElementById("yearofStudy").value,
     rollNumber: document.getElementById("rollNumber").value,
     paymentMode:"Online",
-    orderID:orderID
+    orderID:orderID,
 };
 
   var xmlHttp = new XMLHttpRequest();
@@ -80,19 +82,26 @@ xmlHttp.send(JSON.stringify(params));
 
 // form validation before payment
 function validateForm() {
-    var f = document.forms["myForm"]["fullName"].value;
-    var e = document.forms["myForm"]["email"].value;
-    var c = document.forms["myForm"]["phoneNumber"].value;
+    let f = document.forms["myForm"]["fullName"].value;
+    let e = document.forms["myForm"]["email"].value;
+    let p = document.forms["myForm"]["phoneNumber"].value;
+    let c = document.forms["myForm"]["yearofStudy"].value;
+    let r = document.forms["myForm"]["rollNumber"].value;
+
     if (f == "") {
       alert("Name must be filled out");
       return false;
     }else if (e == ""){
       alert("Enter your Email Address");
         return false;
-    }else if (c == ""){
+    }else if (p == ""){
       alert("Enter Valid Phone Number");
         return false;
-    }else{
+    }else if(c==""){
+      alert("Enter your college name");
+    } else if(r==""){
+      alert("Enter your college rollnumber");
+    } else{
         return true;
     }
   }

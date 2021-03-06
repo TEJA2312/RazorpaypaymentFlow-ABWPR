@@ -1,0 +1,297 @@
+<!-- copyrights@2020 
+name: tejas Shirnalkar email:tejas.shirnalkar@gmail.com githubID:TEJA2312 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible"content="IE=edge">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- CSS only --> 
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+   </head>
+   <style>
+       .container{
+           margin-top:10px;
+       }
+       .button {
+           background-image: linear-gradient(to right, #161190, #0049b9, #0077d7, #00a3ed, #59cefe);
+ border: none;
+ color: white;
+ padding: 13px 25px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ width:200px;
+ font-size: 14px;
+ font-weight: bolder;
+ margin: 4px 2px;
+ cursor: pointer;
+}
+body{
+ font-family:"Alata";
+}
+
+.form-control:focus {
+ border-color:  rgba(19, 155, 143, 0.6);
+ box-shadow: inset 0 1px 1px rgba(248, 248, 248, 0.075), 0 0 8px rgba(19, 155, 143, 0.6);
+}
+
+.invoice-box {
+       max-width: 800px;
+       margin: auto;
+       padding: 30px;
+       border: 1px solid #eee;
+       box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+       font-size: 16px;
+       line-height: 24px;
+       font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+       color: #555;
+   }
+   
+   .invoice-box table {
+       width: 100%;
+       line-height: inherit;
+       text-align: left;
+   }
+   
+   .invoice-box table td {
+       padding: 5px;
+       vertical-align: top;
+   }
+   
+   .invoice-box table tr td:nth-child(2) {
+       text-align: right;
+   }
+   
+   .invoice-box table tr.top table td {
+       padding-bottom: 20px;
+   }
+   
+   .invoice-box table tr.top table td.title {
+       font-size: 45px;
+       line-height: 45px;
+       color: #333;
+   }
+   
+   .invoice-box table tr.information table td {
+       padding-bottom: 40px;
+   }
+   
+   .invoice-box table tr.heading td {
+       background: #eee;
+       border-bottom: 1px solid #ddd;
+       font-weight: bold;
+   }
+   
+   .invoice-box table tr.details td {
+       padding-bottom: 20px;
+   }
+   
+   .invoice-box table tr.item td{
+       border-bottom: 1px solid #eee;
+   }
+   
+   .invoice-box table tr.item.last td {
+       border-bottom: none;
+   }
+   
+   .invoice-box table tr.total td:nth-child(2) {
+       border-top: 2px solid #eee;
+       font-weight: bold;
+   }
+   
+   @media only screen and (max-width: 600px) {
+       .invoice-box table tr.top table td {
+           width: 100%;
+           display: block;
+           text-align: center;
+       }
+       
+       .invoice-box table tr.information table td {
+           width: 100%;
+           display: block;
+           text-align: center;
+       }
+   }
+   
+   /** RTL **/
+   .rtl {
+       direction: rtl;
+       font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+   }
+   
+   .rtl table {
+       text-align: right;
+   }
+   
+   .rtl table tr td:nth-child(2) {
+       text-align: left;
+   }
+</style>
+<body>
+   
+   <div class="container" >
+       <br>
+<h3 style=" color: #065269;"><b>ARDUINO BOTIX WORKSHOP 2021</b></h3>
+<h6 style=" color: #065269;"><b>BY PICT ROBOTICS</b></h6>
+<br>
+<p>REGISTRATION FORM</p>
+   <form name="myForm" class="row g-3">
+       <div class="col-md-10">
+         <label for="inputEmail4" class="form-label">Full Name: </label>
+         <input placeholder=" (fisrtname | middlename | lastname)" type="text" name="fullName" class="form-control" id="fullName">
+       </div>  
+       <div class="col-md-6">
+         <label for="inputPassword4" class="form-label">Email Address:</label>
+         <input type="email"name="email" class="form-control" id="email">
+       </div>
+       <div class="col-md-4">
+         <label for="inputAddress" class="form-label">Phone Number:</label> 
+         <input type="text" type="number" onkeypress="return isNumberKey(event)" maxlength="10" name="phoneNumber" class="form-control" id="phoneNumber">
+       </div>
+         <div class="col-md-4">
+           <label for="inputCity" class="form-label">College RollNumber:</label>
+           <input type="text" class="form-control" id="rollNumber">
+         </div>
+
+       <div class="col-md-6">
+         <label for="inputAddress2" class="form-label">Year of Study:</label>
+         <select  id="yearofStudy" class="form-select" aria-label="Default select example">
+           <option value="FE">First Year</option>
+           <option value="SE">Second Year</option>
+           <option value="TE">Third Year</option>
+           <option value="BE">Fourth Year</option>
+         </select>
+       </div>
+   
+     
+       <div class="alert alert-success" role="alert">
+           <p>Please enter your current Residential Address in the fields given below CAREFULLY! </p>
+           <hr>
+           <p class="mb-0">Your Arduino Robotics Kit will be Delivered to this Address Before the Workshop <br> <b>Delivery Fee is included in the price of workshop You dont need to pay extra</b></p>
+         </div>
+       <div class="col-md-10">
+           <label for="inputEmail4" class="form-label">Delivery Address: </label>
+           <input type="text" name="address" id="address" placeholder="House number/Flat number, Building/apartment name, Locality/street/area"  class="form-control">
+         </div>
+
+         <div class="col-md-4">
+           <label for="inputCity" class="form-label">Landmark:</label>
+           <input type="text" class="form-control" id="landmark">
+         </div>
+         
+         <div class="col-md-6">
+           <label for="inputAddress2" class="form-label">State:</label>
+           <select id="state" class="form-select">
+               <option value="Maharashtra">Maharashtra</option>
+               <option value="Andhra Pradesh">Andhra Pradesh</option>
+               <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+               <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+               <option value="Assam">Assam</option>
+               <option value="Bihar">Bihar</option>
+               <option value="Chandigarh">Chandigarh</option>
+               <option value="Chhattisgarh">Chhattisgarh</option>
+               <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+               <option value="Daman and Diu">Daman and Diu</option>
+               <option value="Delhi">Delhi</option>
+               <option value="Lakshadweep">Lakshadweep</option>
+               <option value="Puducherry">Puducherry</option>
+               <option value="Goa">Goa</option>
+               <option value="Gujarat">Gujarat</option>
+               <option value="Haryana">Haryana</option>
+               <option value="Himachal Pradesh">Himachal Pradesh</option>
+               <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+               <option value="Jharkhand">Jharkhand</option>
+               <option value="Karnataka">Karnataka</option>
+               <option value="Kerala">Kerala</option>
+               <option value="Madhya Pradesh">Madhya Pradesh</option>
+               <option value="Manipur">Manipur</option>
+               <option value="Meghalaya">Meghalaya</option>
+               <option value="Mizoram">Mizoram</option>
+               <option value="Nagaland">Nagaland</option>
+               <option value="Odisha">Odisha</option>
+               <option value="Punjab">Punjab</option>
+               <option value="Rajasthan">Rajasthan</option>
+               <option value="Sikkim">Sikkim</option>
+               <option value="Tamil Nadu">Tamil Nadu</option>
+               <option value="Telangana">Telangana</option>
+               <option value="Tripura">Tripura</option>
+               <option value="Uttar Pradesh">Uttar Pradesh</option>
+               <option value="Uttarakhand">Uttarakhand</option>
+               <option value="West Bengal">West Bengal</option>
+               </select>
+         </div>
+
+
+         <div class="col-md-6">
+           <label for="inputCity" class="form-label">City:</label>
+           <input type="text" class="form-control" id="city">
+         </div>
+         <div class="col-md-4">
+           <label for="inputCity" class="form-label">Pincode:</label>
+           <input type="text" name="pincode" class="form-control" id="pincode">
+         </div>
+         
+
+
+     </form>
+     <!-- ------------------------------------------------------------- -->
+     <br>
+     <div class="card border-info mb-3" style="max-width: 100%;">
+       <div class="card-body">
+         <img width="250px"  src="/assets/images/pay_final.png">
+         <p class="card-text">This payment is secured by Razorpay which is PCI DSS and ISO:27001 compliant. All payment modes including UPI, credit card, debit card, netbanking and popular wallets are accepted.</p>
+       </div>
+     </div>
+     <div class="col-12">
+       <button id="rzp-button1" style="font-family: arial,helvetica;" class="button">PAY ₹ 2000</button>
+   </div>
+</div>
+<br>
+<br>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+   var options = {
+   "key": "rzp_live_t8m9SOpnI1xLN4", // Enter the Key ID generated from the Dashboard
+   "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+   "currency": "INR",
+   "name": "PICT ROBOTICS",
+   "description": "Arduino botix Workshop",
+   "image": "/assets/images/logo.png",
+   "order_id": "<%=order.id%>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+   "handler": function (response){
+       check(response.razorpay_order_id,response.razorpay_payment_id,response.razorpay_signature);
+   },
+   "prefill": {
+       "name": document.getElementById("fullName").value,
+       "email": document.getElementById("email").value,
+       "contact": document.getElementById("phoneNumber").value
+   },
+   "notes": {
+       "address": "Razorpay Corporate Office"
+   },
+   "theme": {
+       "color": "#005a66"
+   },
+   "modal":
+    {
+   "ondismiss": function(){
+        window.location.replace("/api/payment/order");
+    },
+    
+}
+};
+
+
+</script>
+<script src="/assets/js/paymentFlow.js"></script>
+
+</body>
+</html>

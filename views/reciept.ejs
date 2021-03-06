@@ -12,250 +12,168 @@
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <style>
-    .container{
-        margin-top:50px;
-    }
-    .button {
-        background-image: linear-gradient(to right, #161190, #0049b9, #0077d7, #00a3ed, #59cefe);
-border: none;
-color: white;
-padding: 13px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-width:200px;
-font-size: 14px;
-font-weight: bolder;
-margin: 4px 2px;
-cursor: pointer;
+    h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
+
+/* table */
+
+table { font-size: 75%; table-layout: fixed; width: 100%; }
+table { border-collapse: separate; border-spacing: 2px; }
+th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
+th, td { border-radius: 0.25em; border-style: solid; }
+th { background: #EEE; border-color: #BBB; }
+td { border-color: #DDD; }
+
+body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 7.5in; }
+body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
+
+/* header */
+
+header { margin: 0 0 3em; }
+header:after { clear: both; content: ""; display: table; }
+
+header h1 { background: #30b3ff; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
+header address { float: left; font-size: 95%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+article address.norm h4 {
+	font-size: 125%;
+	font-weight: bold;
 }
-body{
-font-family:"Alata";
+article address.norm { float: left; font-size: 95%; font-style: normal; font-weight: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+header address p { margin: 0 0 0.25em; }
+header span, header img { display: block; float: right; }
+header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
+header img { max-height: 100%; max-width: 100%; }
+header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
+
+/* article */
+
+article, article address, table.meta, table.inventory { margin: 0 0 3em; }
+article:after { clear: both; content: ""; display: table; }
+article h1 { clip: rect(0 0 0 0); position: absolute; }
+
+article address { float: left; font-size: 125%; font-weight: bold; }
+
+/* table meta & balance */
+
+table.meta, table.balance { float: right; width: 36%; }
+table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
+
+/* table meta */
+
+table.meta th { width: 40%; }
+table.meta td { width: 60%; }
+
+/* table items */
+
+table.inventory { clear: both; width: 100%; }
+table.inventory th:first-child {
+	width:50px;
+}
+table.inventory th:nth-child(2) {
+	width:300px;
+}
+table.inventory th { font-weight: bold; text-align: center; }
+
+table.inventory td:nth-child(1) { width: 26%; }
+table.inventory td:nth-child(2) { width: 38%; }
+table.inventory td:nth-child(3) { text-align: right; width: 12%; }
+table.inventory td:nth-child(4) { text-align: right; width: 12%; }
+table.inventory td:nth-child(5) { text-align: right; width: 12%; }
+
+/* table balance */
+
+table.balance th, table.balance td { width: 50%; }
+table.balance td { text-align: right; }
+
+/* aside */
+
+aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
+aside h1 { border-color: #999; border-bottom-style: solid; }
+
+table.sign {
+	float: left;
+	width: 220px;
+}
+table.sign img {
+	width: 100%;
+}
+table.sign tr td {
+	border-color: transparent;
+}
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+	html { background: none; padding: 0; }
+	body { box-shadow: none; margin: 0; }
+	span:empty { display: none; }
+	.add, .cut { display: none; }
 }
 
-.form-control:focus {
-border-color:  rgba(19, 155, 143, 0.6);
-box-shadow: inset 0 1px 1px rgba(248, 248, 248, 0.075), 0 0 8px rgba(19, 155, 143, 0.6);
-}
-
-.invoice-box {
-    max-width: 800px;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-    font-size: 16px;
-    line-height: 24px;
-    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    color: #555;
-}
-
-.invoice-box table {
-    width: 100%;
-    line-height: inherit;
-    text-align: left;
-}
-
-.invoice-box table td {
-    padding: 5px;
-    vertical-align: top;
-}
-
-.invoice-box table tr td:nth-child(2) {
-    text-align: right;
-}
-
-.invoice-box table tr.top table td {
-    padding-bottom: 20px;
-}
-
-.invoice-box table tr.top table td.title {
-    font-size: 45px;
-    line-height: 45px;
-    color: #333;
-}
-
-.invoice-box table tr.information table td {
-    padding-bottom: 40px;
-}
-
-.invoice-box table tr.heading td {
-    background: #eee;
-    border-bottom: 1px solid #ddd;
-    font-weight: bold;
-}
-
-.invoice-box table tr.details td {
-    padding-bottom: 20px;
-}
-
-.invoice-box table tr.item td{
-    border-bottom: 1px solid #eee;
-}
-
-.invoice-box table tr.item.last td {
-    border-bottom: none;
-}
-
-.invoice-box table tr.total td:nth-child(2) {
-    border-top: 2px solid #eee;
-    font-weight: bold;
-}
-
-@media only screen and (max-width: 600px) {
-    .invoice-box table tr.top table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-    
-    .invoice-box table tr.information table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-}
-
-/** RTL **/
-.rtl {
-    direction: rtl;
-    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-}
-
-.rtl table {
-    text-align: right;
-}
-
-.rtl table tr td:nth-child(2) {
-    text-align: left;
-}
+@page { margin: 0; }
 </style>
 <body>
-    <br>
-    <br>
-    <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <img src="/assets/images/work.png" style="width:100%; max-width:300px;">
-                            </td>
-                            
-                            <td>
-                                Invoice #: 123<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            
-            <tr class="information">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td>
-                                SCTR'S Pune Institute of Computer Technology Near, <br>
-                                Trimurti Chowk,<br>
-                                 Bharati Vidyapeeth Campus,<br>
-                                  Dhankawadi, Pune, Maharashtra 411043
-                            </td>
-                            
-                            <td>
-                                Pict Robotics.<br>
-                                pictrobotics.com<br>
-                                robocon@pict.edu
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-         
-            <tr class="heading">
-                <td>
-                    Info
-                </td>
-                
-                <td>
-                    Details
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Name
-                </td>
-                
-                <td>
-                    <%=docs.fullName%>
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                   Phone Number
-                </td>
-                
-                <td>
-                    <%=docs.phoneNumber%>
-                </td>
-            </tr>
-            
-            <tr class="item last">
-                <td>
-                   Email Address
-                </td>
-                
-                <td>
-                    <%=docs.email%>
-                </td>
-            </tr>
-            <tr class="item last">
-                <td>
-                   OrderID
-                </td>
-                
-                <td>
-                    <%=docs.orderID%>
-                </td>
-            </tr><tr class="item last">
-                <td>
-                   Roll Number
-                </td>
-                
-                <td>
-                    <%=docs.rollNumber%>
-                </td>
-            </tr>
-            <tr class="item last">
-                <td>
-                   Year Of Study
-                </td>
-                
-                <td>
-                    <%=docs.yearofStudy%>
-                </td>
-            </tr>
-                 
-            <tr class="heading">
-                <td>
-                    Amount Paid
-                </td>
-                
-                <td>
-                    ₹ 1500
-                </td>
-            </tr>
 
+   <h3 style=" color: rgb(44, 238, 44);">PAYMENT SUCCESSFULL! PLEASE TAKE SCREENSHOT OF THIS TICKET</h3>
+   <br>
+   <br>
+   <img alt="it" src="/assets/images/ri2.png">
+<br>
+    <header>
+        <h1><b>ARDUINO BOTIX WORKSHOP TICKET</b></h1>
+        <address >
+            Survey No. 27, <br>
+            Near, Trimurti Chowk, Bharati Vidyapeeth Campus, <br>
+            Dhankawadi, <br>
+            Pune,<br>
+            Maharashtra 411043
+        </address>
 
+    </header>
+    <article>
+        <h1>Recipient</h1>
+        <address  class="norm">
+            <h4><%=docs.fullName%></h4>
+            <h4>ORDER ID: <%=docs.orderID%></h4>
+            <p> <%=docs.email%> </p>
+            <p> <%=docs.address%></p>
+            <p><%=docs.city%>-<%=docs.pincode%></p>
+            <p> Phone: <%=docs.phoneNumber%></p>
+        </address>
 
+        <table class="inventory">
+            <thead>
+                <tr>
+                    <th><span >S. No</span></th>
+                    <th><span >Description</span></th>
+                    <th><span >Qty</span></th>
+                    <th><span >Rate Per Qty</span></th>
+                    <th><span >Amount</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span >1.</span></td>
+                    <td><span >Workshop Seat + Robotics KIT </span></td>
+                    <td><span data-prefix>₹</span><span >2000.00</span></td>
+                    <td><span >1</span></td>
+                    <td><span data-prefix>₹</span><span>2000.00</span></td>
+                </tr>
+            </tbody>
         </table>
-      </div>
+    </article>
+    <aside>
+        <h1><span >IN CASE OF ANY QUERY CONTACT </span></h1>
+        <div >
+            <p>MRUDUL BORSE: +91 8237858852</p>
+            <p>VED PATWARDHAN: +91 9823987293</p>
+        </div>
+    </aside>
       <br>
       <br>
-
+<script>
+    n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>
 </body>
 </html>
