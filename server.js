@@ -45,7 +45,7 @@ app.get("/api/payment/order",(req,res)=>{
             };
             instance.orders.create(options, function(err, order) {
               console.log(order);
-              res.render('register',{order: order});
+              res.render('Register',{order: order});
             });
 
 });
