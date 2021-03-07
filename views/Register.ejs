@@ -137,8 +137,8 @@ body{
     
     <div class="container" >
         <br>
-<h3 style=" color: #065269;"><b>ARDUINO BOTIX WORKSHOP 2021</b></h3>
-<h6 style=" color: #065269;"><b>BY PICT ROBOTICS</b></h6>
+        <h1 style=" color: #000000;"><b>ROBOTICS <span style=" color: #38b6ff">BOOTCAMP</span> 2021</b></h3>
+            <h6 style=" color: #38b6ff;"><b>BY PICT ROBOTICS</b></h6>
 <br>
 <p>REGISTRATION FORM</p>
     <form name="myForm" class="row g-3">
@@ -189,7 +189,7 @@ body{
    
       
       <div class="col-12">
-        <button id="rzp-button1" style="font-family: arial,helvetica;" class="button">PAY ₹ 2000</button>
+        <button id="rzp-button1" style="font-family: arial,helvetica;" class="button">PAY ₹ 400</button>
     </div>
 </div>
 <br>
@@ -200,7 +200,7 @@ body{
 <script>
     var options = {
     "key": "rzp_live_t8m9SOpnI1xLN4", // Enter the Key ID generated from the Dashboard
-    "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "PICT ROBOTICS",
     "description": "Arduino botix Workshop",
@@ -210,9 +210,10 @@ body{
         check(response.razorpay_order_id,response.razorpay_payment_id,response.razorpay_signature);
     },
     "prefill": {
-        "name": document.getElementById("fullName").value,
-        "email": document.getElementById("email").value,
-        "contact": document.getElementById("phoneNumber").value
+        "name": "PICT ROBOTICS",
+        "email": "tejas.shirnalkar@gmail.com",
+        "contact": "7972228649",
+        "method":"upi"
     },
     "notes": {
         "address": "Razorpay Corporate Office"

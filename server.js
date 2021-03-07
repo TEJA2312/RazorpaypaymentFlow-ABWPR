@@ -39,7 +39,7 @@ app.get('/test',(req, res)=>{
 
 app.get("/api/payment/order",(req,res)=>{
        var options = {
-              amount: 100,  // amount in the smallest currency unit
+              amount: 40000,  // amount in the smallest currency unit
               currency: "INR",
               receipt: "order_rcptid_11"
             };
